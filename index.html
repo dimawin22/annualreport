@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Power - 2025 Annual Recap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7fa;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            border-radius: 0;
+            overflow: hidden;
+            margin-top: 0;
+            margin-bottom: 0;
+            transform: scale(0.8);
+            transform-origin: top center;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            min-height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-image {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 30px;
+            max-width: 900px;
+            transform: translateY(170px);
+        }
+        
+        .header-content h1 {
+            margin-bottom: 0;
+        }
+        
+        .header-content .subtitle {
+            display: none;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+            line-height: 1.2;
+            text-transform: none;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            white-space: nowrap;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.98);
+            font-weight: 300;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        main {
+            padding: 40px 35px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #1a1a1a;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 12px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: 400;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 0;
+            border-left: 5px solid #1a1a1a;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            color: #34495e;
+            line-height: 1.5;
+        }
+
+        .milestone {
+            background: #ffffff;
+            border-left: 5px solid #1a1a1a;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .milestone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .milestone h3 {
+            margin-top: 0;
+            color: #1a1a1a;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .stats-table th {
+            background: #1a1a1a;
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85em;
+        }
+
+        .stats-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .stats-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .stats-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .team-member {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0;
+            border-left: 4px solid #1a1a1a;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateX(5px);
+        }
+
+        .team-member h4 {
+            color: #1a1a1a;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .final-thoughts {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            border-radius: 0;
+            margin-top: 45px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .final-thoughts h2 {
+            color: white;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .final-thoughts p,
+        .final-thoughts li {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.15em;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            header {
+                height: 40vh;
+                min-height: 350px;
+            }
+
+            main {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .header-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="vendor power 2.png" alt="Vendor Power" class="header-image">
+            <div class="header-content">
+                <h1>Vendor Power - 2025 Annual Recap</h1>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <h2>Big Picture</h2>
+                <p class="intro">
+                    2025 was a turning point year for the Vendor department.
+                </p>
+                <p>
+                    We became smaller as a team, but much stronger in structure, flexibility, ownership, and collaboration. Vendor stopped being a purely operational function and turned into a data-driven, process-oriented partner for Localization and Sales.
+                </p>
+                <p>
+                    We moved from reacting to problems → to systematically preventing them, and from manual work → to tools, automation, and analytics.
+                </p>
+            </section>
+
+            <section>
+                <h2>Key Milestones of 2025</h2>
+
+                <div class="milestone">
+                    <h3>1. Vendor Team Transformation</h3>
+                    <ul>
+                        <li>The Vendor team structure changed significantly.</li>
+                        <li>Team size decreased, but efficiency, accountability, and ownership increased.</li>
+                        <li>Stronger team collaboration emerged – not just inside Vendor, but across Localization and Sales.</li>
+                        <li>Clear roles, clearer expectations, less chaos.</li>
+                    </ul>
+                    <p><strong>This was not a "cost-cutting" change – it was a quality upgrade.</strong></p>
+                </div>
+
+                <div class="milestone">
+                    <h3>2. Margin Analysis Became a Core Process</h3>
+                    <p>One of the biggest milestones of the year was introducing systematic margin analysis as a continuous process, not a one-off activity.</p>
+                    <p><strong>2025 numbers:</strong></p>
+                    <ul>
+                        <li>📊 400+ projects analyzed</li>
+                        <li>📈 300+ margin improvement goals logged</li>
+                        <li>💰 100 linguists had rates renegotiated and reduced</li>
+                    </ul>
+                    <p>This directly impacted company performance:</p>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Avg Margin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2022</td>
+                                <td>45.72%</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>46.22%</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>46.60%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2025</strong></td>
+                                <td><strong class="highlight">52.54%</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Margin stopped being "something we look at later" and became a decision-making input for:</p>
+                    <ul>
+                        <li>hiring</li>
+                        <li>rate negotiations</li>
+                        <li>pricing flexibility</li>
+                        <li>project setup</li>
+                        <li>vendor strategy</li>
+                    </ul>
+                </div>
+
+                <div class="milestone">
+                    <h3>3. Monthly Alpha Calculation Review</h3>
+                    <p>Another important operational milestone was launching the Monthly Alpha Calculation Review.</p>
+                    <ul>
+                        <li>Over several months, we reviewed and fixed hundreds of calculation errors</li>
+                        <li>These were cases where profit was silently lost due to:
+                            <ul>
+                                <li>incorrect alpha cloning</li>
+                                <li>outdated task setups</li>
+                                <li>human copy-paste errors</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p><strong>Alphas = tasks in our system.</strong><br>
+                    Fixing this process directly stopped margin leakage and increased trust in our numbers.</p>
+                </div>
+
+                <div class="milestone">
+                    <h3>4. Hunt&Hire Tool – Killing Manual Work</h3>
+                    <p>We fully replaced manual handling of incoming linguist applications with Hunt&Hire.</p>
+                    <p><strong>Results:</strong></p>
+                    <ul>
+                        <li>Saved hundreds of working hours</li>
+                        <li>Faster response times</li>
+                        <li>Better filtering quality</li>
+                        <li>Less burnout for Vendor managers</li>
+                    </ul>
+                    <p>This tool quietly removed a huge chunk of invisible operational load from the team.</p>
+                </div>
+
+                <div class="milestone">
+                    <h3>5. Goodbye ContentQuo – Hello Our Own QA System</h3>
+                    <p>We ended cooperation with ContentQuo (external QA tool).</p>
+                    <p><strong>Instead:</strong></p>
+                    <ul>
+                        <li>Built our own QA prototype, driven by:
+                            <ul>
+                                <li>Google Spreadsheets</li>
+                                <li>Google Apps Script</li>
+                                <li>Web version on Apps Script</li>
+                            </ul>
+                        </li>
+                        <li>Fully adapted to our LQA logic and workflows</li>
+                    </ul>
+                    <p>This:</p>
+                    <ul>
+                        <li>Saved the company money</li>
+                        <li>Increased flexibility</li>
+                        <li>Gave us full control over quality logic</li>
+                    </ul>
+                    <p><strong>Next step:</strong><br>
+                    In the near future, this prototype will be converted into a full internal tool, with potential to grow into a standalone SaaS.</p>
+                </div>
+
+                <div class="milestone">
+                    <h3>6. TEAMZZZ Tool – Vendor Intelligence Hub</h3>
+                    <p>We launched TEAMZZZ, our internal tool for working with linguist pools.</p>
+                    <p><strong>TEAMZZZ helps us:</strong></p>
+                    <ul>
+                        <li>Build better project teams</li>
+                        <li>Optimize and benchmark rates</li>
+                        <li>Speed up margin and quality analysis</li>
+                        <li>Make smarter staffing decisions</li>
+                        <li>Centralize vendor knowledge</li>
+                    </ul>
+                    <p>This tool significantly strengthened Vendor's strategic role in the company.</p>
+                </div>
+
+                <div class="milestone">
+                    <h3>7. In-House Operations – Foundation Built</h3>
+                    <p>In-House scaling strategy was designed and prepared.</p>
+                    <ul>
+                        <li>Not fully activated yet (waiting for large new projects)</li>
+                        <li>However, based on modeling, In-House operations already generated:
+                            <ul>
+                                <li>~80,000 USD in value in 2025</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>The foundation is ready. Once demand scales, In-House can be activated fast.</p>
+                </div>
+
+                <div class="milestone">
+                    <h3>8. JPY Payments Optimization</h3>
+                    <p>Another important financial milestone:</p>
+                    <ul>
+                        <li>Part of linguists were switched to JPY payments</li>
+                        <li>This allowed us to use existing company JPY reserves more efficiently</li>
+                        <li>Reduced currency pressure and improved cash-flow flexibility</li>
+                    </ul>
+                    <p><strong>Small change – real financial impact.</strong></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Team Contributions (Based on Weekly Recaps)</h2>
+
+                <div class="team-member">
+                    <h4>dv – Head of Vendor Department</h4>
+                    <ul>
+                        <li>Led full Vendor transformation</li>
+                        <li>Owned margin analysis strategy and execution</li>
+                        <li>Initiated and drove:
+                            <ul>
+                                <li>Monthly Alpha Review</li>
+                                <li>Hunt&Hire</li>
+                                <li>TEAMZZZ</li>
+                                <li>Internal QA replacement (ContentQuo exit)</li>
+                            </ul>
+                        </li>
+                        <li>Acted as a bridge between Vendor, Localization, and Sales</li>
+                        <li>Focused heavily on long-term scalability and tooling</li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <h4>Irina – Vendor Manager</h4>
+                    <ul>
+                        <li>One of the most stable and reliable pillars of the team</li>
+                        <li>Strong ownership over:
+                            <ul>
+                                <li>project support</li>
+                                <li>linguist coordination</li>
+                                <li>quality and margin follow-ups</li>
+                            </ul>
+                        </li>
+                        <li>Actively involved in cross-checks, LQA, and complex vendor cases</li>
+                        <li>Provided continuity during team restructuring</li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <h4>Tonyzal – Vendor Manager</h4>
+                    <ul>
+                        <li>Joined during the transformation phase</li>
+                        <li>Quickly adapted to new processes and tooling</li>
+                        <li>Strong involvement in:
+                            <ul>
+                                <li>margin-related tasks</li>
+                                <li>operational cleanup</li>
+                                <li>vendor coordination</li>
+                            </ul>
+                        </li>
+                        <li>Helped stabilize workflows during high-load periods</li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <h4>Albina – Vendor Manager</h4>
+                    <ul>
+                        <li>Joined one year ago and ramped up fast</li>
+                        <li>Took ownership over:
+                            <ul>
+                                <li>day-to-day vendor operations</li>
+                                <li>linguist communication</li>
+                                <li>process execution</li>
+                            </ul>
+                        </li>
+                        <li>Became a reliable operational driver inside the new Vendor setup</li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <h4>KD – Vendor → Localization Manager</h4>
+                    <ul>
+                        <li>Joined in November as Vendor Manager</li>
+                        <li>Transitioning to Localization Manager role in January</li>
+                        <li>Early involvement helped strengthen Vendor–Localization alignment</li>
+                        <li>Clear growth trajectory inside the company</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="final-thoughts">
+                <h2>Final Thoughts</h2>
+                <p>
+                    2025 proved that:
+                </p>
+                <ul>
+                    <li>Vendor is not a cost center</li>
+                    <li>Vendor is a profit, quality, and scalability lever</li>
+                </ul>
+                <p>We:</p>
+                <ul>
+                    <li>increased margins</li>
+                    <li>reduced chaos</li>
+                    <li>built tools instead of workarounds</li>
+                    <li>prepared the ground for scaling</li>
+                </ul>
+                <p>
+                    With AI changing the industry, Vendor didn't get weaker – it adapted.
+                </p>
+                <p style="font-size: 1.3em; margin-top: 30px; font-weight: 600;">
+                    Honestly, it feels like 2026 can be the strongest year yet.
+                </p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
