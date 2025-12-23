@@ -4,584 +4,631 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendor Power - 2025 Annual Recap</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        dark: "#0F1115",
+                        "dark-surface": "#181B21",
+                        "neon-green": "#4ADE80",
+                        "neon-gold": "#FACC15",
+                        "neon-purple": "#A855F7",
+                        "neon-blue": "#3B82F6",
+                        "neon-pink": "#EC4899",
+                        "text-main": "#E2E8F0",
+                        "text-muted": "#94A3B8"
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Oswald", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(to bottom, transparent 0%, #0F1115 100%)',
+                    }
+                },
+            },
+        };
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background: #f5f7fa;
-            min-height: 100vh;
-            padding-bottom: 60px;
+            background-color: #0F1115;
+            color: #E2E8F0;
         }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
-            border-radius: 0;
-            overflow: hidden;
-            margin-top: 0;
-            margin-bottom: 0;
-            transform: scale(0.8);
-            transform-origin: top center;
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
-
-        header {
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .gradient-border-l {
             position: relative;
-            width: 100%;
-            height: 50vh;
-            min-height: 400px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        .header-image {
-            position: absolute;
-            top: -10%;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        header::after {
+        .gradient-border-l::before {
             content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px;
+            background: linear-gradient(to bottom, var(--tw-gradient-from), var(--tw-gradient-to));
+        }
+        .header-image-bg {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
-            z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 30px;
-            max-width: 900px;
-            transform: translateY(170px);
-        }
-        
-        .header-content h1 {
-            margin-bottom: 0;
-        }
-        
-        .header-content .subtitle {
-            display: none;
-        }
-
-        h1 {
-            font-size: 2.8em;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.3);
-            letter-spacing: -1px;
-            line-height: 1.2;
-            text-transform: none;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            white-space: nowrap;
-        }
-
-        .subtitle {
-            font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.98);
-            font-weight: 300;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        main {
-            padding: 40px 35px;
-        }
-
-        h2 {
-            font-size: 2.2em;
-            color: #1a1a1a;
-            margin-top: 45px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            border-bottom: 3px solid #1a1a1a;
-            padding-bottom: 12px;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        h2:first-of-type {
-            margin-top: 0;
-        }
-
-        h3 {
-            font-size: 1.6em;
-            color: #2c3e50;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        p {
-            font-size: 1.05em;
-            margin-bottom: 15px;
-            color: #34495e;
-        }
-
-        .intro {
-            font-size: 1.2em;
-            color: #2c3e50;
-            font-weight: 400;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 0;
-            border-left: 5px solid #1a1a1a;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        ul, ol {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            font-size: 1.05em;
-            margin-bottom: 10px;
-            color: #34495e;
-            line-height: 1.5;
-        }
-
-        .milestone {
-            background: #ffffff;
-            border-left: 5px solid #1a1a1a;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-top: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .milestone:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .milestone h3 {
-            margin-top: 0;
-            color: #1a1a1a;
-        }
-
-        .stats-table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .stats-table th {
-            background: #1a1a1a;
-            color: white;
-            padding: 14px;
-            text-align: left;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85em;
-        }
-
-        .stats-table td {
-            padding: 12px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .stats-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .stats-table tr:hover {
-            background: #f8f9fa;
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .team-member {
-            background: #ffffff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0;
-            border-left: 4px solid #1a1a1a;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            border-top: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateX(5px);
-        }
-
-        .team-member h4 {
-            color: #1a1a1a;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .final-thoughts {
-            background: #1a1a1a;
-            color: white;
-            padding: 40px;
-            border-radius: 0;
-            margin-top: 45px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .final-thoughts h2 {
-            color: white;
-            border-bottom: 4px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .final-thoughts p,
-        .final-thoughts li {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.15em;
-        }
-
-        .emoji {
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-
-            header {
-                height: 40vh;
-                min-height: 350px;
-            }
-
-            main {
-                padding: 30px 20px;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .header-content {
-                padding: 20px;
-            }
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0.6;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <img src="vendor power 2.png" alt="Vendor Power" class="header-image">
-            <div class="header-content">
-                <h1>Vendor Power - 2025 Annual Recap</h1>
+<body class="antialiased selection:bg-neon-purple selection:text-white pb-20">
+    <header class="relative w-full h-[600px] overflow-hidden mb-16">
+        <img src="vendor power logo.png" alt="Vendor Power" class="header-image-bg">
+        <div class="absolute inset-0 bg-hero-gradient"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-20 px-4 text-center">
+            <h2 class="font-sans text-xl md:text-3xl font-bold text-white tracking-[0.2em] uppercase opacity-90 transform translate-y-32">
+                2025 Annual Recap
+            </h2>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-24">
+        <section class="relative">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-12 w-2 bg-neon-green rounded-full shadow-[0_0_15px_rgba(74,222,128,0.5)]"></div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">Big Picture</h2>
             </div>
-        </header>
-
-        <main>
-            <section>
-                <h2>Big Picture</h2>
-                <p class="intro">
-                    2025 was a turning point year for the Vendor department.
-                </p>
-                <p>
-                    We became smaller as a team, but much stronger in structure, flexibility, ownership, and collaboration. Vendor stopped being a purely operational function and turned into a data-driven, process-oriented partner for Localization and Sales.
-                </p>
-                <p>
-                    We moved from reacting to problems → to systematically preventing them, and from manual work → to tools, automation, and analytics.
-                </p>
-            </section>
-
-            <section>
-                <h2>Key Milestones of 2025</h2>
-
-                <div class="milestone">
-                    <h3>1. Vendor Team Transformation</h3>
-                    <ul>
-                        <li>The Vendor team structure changed significantly.</li>
-                        <li>Team size decreased, but efficiency, accountability, and ownership increased.</li>
-                        <li>Stronger team collaboration emerged – not just inside Vendor, but across Localization and Sales.</li>
-                        <li>Clear roles, clearer expectations, less chaos.</li>
-                    </ul>
-                    <p><strong>This was not a "cost-cutting" change – it was a quality upgrade.</strong></p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4 bg-gradient-to-br from-dark-surface to-gray-900 p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-green/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-neon-green/20 transition-all"></div>
+                    <span class="material-icons-round text-neon-green text-5xl mb-6">auto_graph</span>
+                    <p class="text-xl md:text-2xl font-medium text-white leading-relaxed">
+                        2025 was a <span class="text-neon-green font-bold">turning point</span> year for the Vendor department.
+                    </p>
                 </div>
-
-                <div class="milestone">
-                    <h3>2. Margin Analysis Became a Core Process</h3>
-                    <p>One of the biggest milestones of the year was introducing systematic margin analysis as a continuous process, not a one-off activity.</p>
-                    <p><strong>2025 numbers:</strong></p>
-                    <ul>
-                        <li>📊 400+ projects analyzed</li>
-                        <li>📈 300+ margin improvement goals logged</li>
-                        <li>💰 100 linguists had rates renegotiated and reduced</li>
-                    </ul>
-                    <p>This directly impacted company performance:</p>
-                    <table class="stats-table">
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Avg Margin</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2022</td>
-                                <td>45.72%</td>
-                            </tr>
-                            <tr>
-                                <td>2023</td>
-                                <td>46.22%</td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td>46.60%</td>
-                            </tr>
-                            <tr>
-                                <td><strong>2025</strong></td>
-                                <td><strong class="highlight">52.54%</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>Margin stopped being "something we look at later" and became a decision-making input for:</p>
-                    <ul>
-                        <li>hiring</li>
-                        <li>rate negotiations</li>
-                        <li>pricing flexibility</li>
-                        <li>project setup</li>
-                        <li>vendor strategy</li>
-                    </ul>
+                <div class="lg:col-span-8 space-y-8 text-lg text-text-muted leading-relaxed">
+                    <div class="bg-dark-surface/50 p-8 rounded-2xl border border-white/5 backdrop-blur-sm">
+                        <p class="mb-6">
+                            We became smaller as a team, but much <strong class="text-white">stronger in structure, flexibility, ownership, and collaboration.</strong> Vendor stopped being a purely operational function and turned into a data-driven, process-oriented partner for Localization and Sales.
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-6 mt-8">
+                            <div class="flex-1 bg-dark p-4 rounded-xl border border-white/5 flex items-start gap-3">
+                                <span class="material-icons-round text-red-400">close</span>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-text-muted mb-1">From</span>
+                                    <span class="text-gray-300">Reacting to problems</span>
+                                </div>
+                            </div>
+                            <div class="hidden md:flex items-center text-gray-600">
+                                <span class="material-icons-round">arrow_forward</span>
+                            </div>
+                            <div class="flex-1 bg-dark p-4 rounded-xl border border-neon-green/30 flex items-start gap-3 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-neon-green/5"></div>
+                                <span class="material-icons-round text-neon-green">check</span>
+                                <div class="relative z-10">
+                                    <span class="block text-xs uppercase tracking-wider text-neon-green mb-1">To</span>
+                                    <span class="text-white font-medium">Systematically preventing them</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-6 mt-4">
+                            <div class="flex-1 bg-dark p-4 rounded-xl border border-white/5 flex items-start gap-3">
+                                <span class="material-icons-round text-red-400">close</span>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-text-muted mb-1">From</span>
+                                    <span class="text-gray-300">Manual Work</span>
+                                </div>
+                            </div>
+                            <div class="hidden md:flex items-center text-gray-600">
+                                <span class="material-icons-round">arrow_forward</span>
+                            </div>
+                            <div class="flex-1 bg-dark p-4 rounded-xl border border-neon-blue/30 flex items-start gap-3 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-neon-blue/5"></div>
+                                <span class="material-icons-round text-neon-blue">smart_toy</span>
+                                <div class="relative z-10">
+                                    <span class="block text-xs uppercase tracking-wider text-neon-blue mb-1">To</span>
+                                    <span class="text-white font-medium">Tools, automation, and analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="milestone">
-                    <h3>3. Monthly Alpha Calculation Review</h3>
-                    <p>Another important operational milestone was launching the Monthly Alpha Calculation Review.</p>
-                    <ul>
-                        <li>Over several months, we reviewed and fixed hundreds of calculation errors</li>
-                        <li>These were cases where profit was silently lost due to:
-                            <ul>
-                                <li>incorrect alpha cloning</li>
-                                <li>outdated task setups</li>
-                                <li>human copy-paste errors</li>
-                            </ul>
+        <section class="relative">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-12 w-2 bg-neon-purple rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">Key Milestones of 2025</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-purple to-neon-blue"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-neon-purple mr-2">01.</span> Vendor Team Transformation
+                        </h3>
+                        <div class="p-2 bg-neon-purple/10 rounded-lg text-neon-purple">
+                            <span class="material-icons-round">groups</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-text-muted relative z-10">
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-neon-purple mt-2.5 flex-shrink-0"></span>
+                            <span>The Vendor team structure changed significantly.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-neon-purple mt-2.5 flex-shrink-0"></span>
+                            <span>Team size decreased, but efficiency, accountability, and ownership increased.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-neon-purple mt-2.5 flex-shrink-0"></span>
+                            <span>Stronger team collaboration emerged – not just inside Vendor, but across Localization and Sales.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-neon-purple mt-2.5 flex-shrink-0"></span>
+                            <span>Clear roles, clearer expectations, less chaos.</span>
                         </li>
                     </ul>
-                    <p><strong>Alphas = tasks in our system.</strong><br>
-                    Fixing this process directly stopped margin leakage and increased trust in our numbers.</p>
-                </div>
+                    <div class="mt-8 pt-6 border-t border-white/5">
+                        <p class="text-white font-medium italic">
+                            "This was not a 'cost-cutting' change – it was a <span class="text-neon-blue">quality upgrade</span>."
+                        </p>
+                    </div>
+                </article>
 
-                <div class="milestone">
-                    <h3>4. Hunt&Hire Tool – Killing Manual Work</h3>
-                    <p>We fully replaced manual handling of incoming linguist applications with Hunt&Hire.</p>
-                    <p><strong>Results:</strong></p>
-                    <ul>
-                        <li>Saved hundreds of working hours</li>
-                        <li>Faster response times</li>
-                        <li>Better filtering quality</li>
-                        <li>Less burnout for Vendor managers</li>
-                    </ul>
-                    <p>This tool quietly removed a huge chunk of invisible operational load from the team.</p>
-                </div>
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-gold to-orange-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-neon-gold mr-2">02.</span> Margin Analysis Core Process
+                        </h3>
+                        <div class="p-2 bg-neon-gold/10 rounded-lg text-neon-gold">
+                            <span class="material-icons-round">query_stats</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        One of the biggest milestones of the year was introducing systematic margin analysis as a continuous process, not a one-off activity.
+                    </p>
+                    <div class="bg-dark/50 rounded-xl p-5 border border-white/5 mb-4">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-text-muted mb-4">2025 Numbers</h4>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <div class="text-2xl font-display font-bold text-white">400+</div>
+                                <div class="text-xs text-text-muted">Projects Analyzed</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-display font-bold text-white">300+</div>
+                                <div class="text-xs text-text-muted">Improvement Goals</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-display font-bold text-white">100</div>
+                                <div class="text-xs text-text-muted">Rates Renegotiated</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-dark/50 rounded-xl p-5 border border-white/5">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-text-muted mb-4">Margin Performance</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-muted text-sm">2022</span>
+                                <span class="text-white font-semibold">45.72%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-muted text-sm">2023</span>
+                                <span class="text-white font-semibold">46.22%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-muted text-sm">2024</span>
+                                <span class="text-white font-semibold">46.60%</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-white/5">
+                                <span class="text-neon-gold font-bold">2025</span>
+                                <span class="text-neon-gold text-xl font-bold">52.54%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mt-6 text-sm">
+                        Margin stopped being "something we look at later" and became a decision-making input for hiring, rate negotiations, pricing flexibility, project setup, and vendor strategy.
+                    </p>
+                </article>
 
-                <div class="milestone">
-                    <h3>5. Goodbye ContentQuo – Hello Our Own QA System</h3>
-                    <p>We ended cooperation with ContentQuo (external QA tool).</p>
-                    <p><strong>Instead:</strong></p>
-                    <ul>
-                        <li>Built our own QA prototype, driven by:
-                            <ul>
-                                <li>Google Spreadsheets</li>
-                                <li>Google Apps Script</li>
-                                <li>Web version on Apps Script</li>
-                            </ul>
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-blue to-cyan-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-neon-blue mr-2">03.</span> Monthly Alpha Review
+                        </h3>
+                        <div class="p-2 bg-neon-blue/10 rounded-lg text-neon-blue">
+                            <span class="material-icons-round">calculate</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        Another important operational milestone was launching the Monthly Alpha Calculation Review.
+                    </p>
+                    <ul class="space-y-4 text-text-muted">
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-neon-blue mt-2.5 flex-shrink-0"></span>
+                            <span>Over several months, we reviewed and fixed hundreds of calculation errors</span>
                         </li>
-                        <li>Fully adapted to our LQA logic and workflows</li>
-                    </ul>
-                    <p>This:</p>
-                    <ul>
-                        <li>Saved the company money</li>
-                        <li>Increased flexibility</li>
-                        <li>Gave us full control over quality logic</li>
-                    </ul>
-                    <p><strong>Next step:</strong><br>
-                    In the near future, this prototype will be converted into a full internal tool, with potential to grow into a standalone SaaS.</p>
-                </div>
-
-                <div class="milestone">
-                    <h3>6. TEAMZZZ Tool – Vendor Intelligence Hub</h3>
-                    <p>We launched TEAMZZZ, our internal tool for working with linguist pools.</p>
-                    <p><strong>TEAMZZZ helps us:</strong></p>
-                    <ul>
-                        <li>Build better project teams</li>
-                        <li>Optimize and benchmark rates</li>
-                        <li>Speed up margin and quality analysis</li>
-                        <li>Make smarter staffing decisions</li>
-                        <li>Centralize vendor knowledge</li>
-                    </ul>
-                    <p>This tool significantly strengthened Vendor's strategic role in the company.</p>
-                </div>
-
-                <div class="milestone">
-                    <h3>7. In-House Operations – Foundation Built</h3>
-                    <p>In-House scaling strategy was designed and prepared.</p>
-                    <ul>
-                        <li>Not fully activated yet (waiting for large new projects)</li>
-                        <li>However, based on modeling, In-House operations already generated:
-                            <ul>
-                                <li>~80,000 USD in value in 2025</li>
-                            </ul>
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-neon-blue mt-2.5 flex-shrink-0"></span>
+                            <span>These were cases where profit was silently lost due to incorrect alpha cloning, outdated task setups, and human copy-paste errors</span>
                         </li>
                     </ul>
-                    <p>The foundation is ready. Once demand scales, In-House can be activated fast.</p>
-                </div>
+                    <div class="mt-6 pt-6 border-t border-white/5">
+                        <p class="text-white font-medium">
+                            <strong>Alphas = tasks in our system.</strong> Fixing this process directly stopped margin leakage and increased trust in our numbers.
+                        </p>
+                    </div>
+                </article>
 
-                <div class="milestone">
-                    <h3>8. JPY Payments Optimization</h3>
-                    <p>Another important financial milestone:</p>
-                    <ul>
-                        <li>Part of linguists were switched to JPY payments</li>
-                        <li>This allowed us to use existing company JPY reserves more efficiently</li>
-                        <li>Reduced currency pressure and improved cash-flow flexibility</li>
-                    </ul>
-                    <p><strong>Small change – real financial impact.</strong></p>
-                </div>
-            </section>
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-green to-emerald-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-neon-green mr-2">04.</span> Hunt&Hire Tool
+                        </h3>
+                        <div class="p-2 bg-neon-green/10 rounded-lg text-neon-green">
+                            <span class="material-icons-round">work</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        We fully replaced manual handling of incoming linguist applications with Hunt&Hire.
+                    </p>
+                    <div class="bg-dark/50 rounded-xl p-5 border border-white/5">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-neon-green mb-4">Results</h4>
+                        <ul class="space-y-3 text-text-muted">
+                            <li class="flex items-center gap-3">
+                                <span class="material-icons-round text-neon-green text-sm">check_circle</span>
+                                <span>Saved hundreds of working hours</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-icons-round text-neon-green text-sm">check_circle</span>
+                                <span>Faster response times</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-icons-round text-neon-green text-sm">check_circle</span>
+                                <span>Better filtering quality</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-icons-round text-neon-green text-sm">check_circle</span>
+                                <span>Less burnout for Vendor managers</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="text-text-muted mt-6 text-sm italic">
+                        This tool quietly removed a huge chunk of invisible operational load from the team.
+                    </p>
+                </article>
 
-            <section>
-                <h2>Team Contributions (Based on Weekly Recaps)</h2>
-
-                <div class="team-member">
-                    <h4>dv – Head of Vendor Department</h4>
-                    <ul>
-                        <li>Led full Vendor transformation</li>
-                        <li>Owned margin analysis strategy and execution</li>
-                        <li>Initiated and drove:
-                            <ul>
-                                <li>Monthly Alpha Review</li>
-                                <li>Hunt&Hire</li>
-                                <li>TEAMZZZ</li>
-                                <li>Internal QA replacement (ContentQuo exit)</li>
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-pink to-rose-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-neon-pink mr-2">05.</span> Our Own QA System
+                        </h3>
+                        <div class="p-2 bg-neon-pink/10 rounded-lg text-neon-pink">
+                            <span class="material-icons-round">verified</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        We ended cooperation with ContentQuo (external QA tool) and built our own QA prototype.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-dark/50 rounded-xl p-4 border border-white/5">
+                            <h4 class="text-sm font-bold text-white mb-2">Built with:</h4>
+                            <ul class="space-y-2 text-text-muted text-sm">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-icons-round text-neon-pink text-sm">table_chart</span>
+                                    <span>Google Spreadsheets</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-icons-round text-neon-pink text-sm">code</span>
+                                    <span>Google Apps Script</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-icons-round text-neon-pink text-sm">web</span>
+                                    <span>Web version on Apps Script</span>
+                                </li>
                             </ul>
+                        </div>
+                        <div class="bg-neon-pink/10 rounded-xl p-4 border border-neon-pink/30">
+                            <p class="text-white text-sm">
+                                <strong>Benefits:</strong> Saved money, increased flexibility, full control over quality logic. Next step: Convert to full internal tool with potential to grow into standalone SaaS.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-purple to-violet-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-neon-purple mr-2">06.</span> TEAMZZZ Tool
+                        </h3>
+                        <div class="p-2 bg-neon-purple/10 rounded-lg text-neon-purple">
+                            <span class="material-icons-round">hub</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        We launched TEAMZZZ, our internal tool for working with linguist pools.
+                    </p>
+                    <div class="bg-dark/50 rounded-xl p-5 border border-white/5">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-neon-purple mb-4">TEAMZZZ Helps Us:</h4>
+                        <ul class="space-y-3 text-text-muted">
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-purple text-sm mt-0.5">group</span>
+                                <span>Build better project teams</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-purple text-sm mt-0.5">trending_up</span>
+                                <span>Optimize and benchmark rates</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-purple text-sm mt-0.5">speed</span>
+                                <span>Speed up margin and quality analysis</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-purple text-sm mt-0.5">psychology</span>
+                                <span>Make smarter staffing decisions</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-purple text-sm mt-0.5">database</span>
+                                <span>Centralize vendor knowledge</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="text-text-muted mt-6 text-sm">
+                        This tool significantly strengthened Vendor's strategic role in the company.
+                    </p>
+                </article>
+
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-cyan-400 mr-2">07.</span> In-House Operations
+                        </h3>
+                        <div class="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
+                            <span class="material-icons-round">business</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        In-House scaling strategy was designed and prepared.
+                    </p>
+                    <div class="bg-dark/50 rounded-xl p-5 border border-white/5 mb-4">
+                        <p class="text-text-muted mb-4">Not fully activated yet (waiting for large new projects)</p>
+                        <div class="bg-cyan-500/10 rounded-lg p-4 border border-cyan-500/30">
+                            <div class="text-3xl font-display font-bold text-cyan-400 mb-1">~$80,000</div>
+                            <div class="text-xs text-text-muted">Value generated in 2025 (based on modeling)</div>
+                        </div>
+                    </div>
+                    <p class="text-white font-medium">
+                        The foundation is ready. Once demand scales, In-House can be activated fast.
+                    </p>
+                </article>
+
+                <article class="bg-dark-surface rounded-3xl p-8 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-amber-500"></div>
+                    <div class="flex items-start justify-between mb-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-white">
+                            <span class="text-yellow-400 mr-2">08.</span> JPY Payments Optimization
+                        </h3>
+                        <div class="p-2 bg-yellow-500/10 rounded-lg text-yellow-400">
+                            <span class="material-icons-round">payments</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted mb-6 text-lg">
+                        Another important financial milestone.
+                    </p>
+                    <ul class="space-y-4 text-text-muted mb-6">
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-yellow-400 mt-2.5 flex-shrink-0"></span>
+                            <span>Part of linguists were switched to JPY payments</span>
                         </li>
-                        <li>Acted as a bridge between Vendor, Localization, and Sales</li>
-                        <li>Focused heavily on long-term scalability and tooling</li>
-                    </ul>
-                </div>
-
-                <div class="team-member">
-                    <h4>Irina – Vendor Manager</h4>
-                    <ul>
-                        <li>One of the most stable and reliable pillars of the team</li>
-                        <li>Strong ownership over:
-                            <ul>
-                                <li>project support</li>
-                                <li>linguist coordination</li>
-                                <li>quality and margin follow-ups</li>
-                            </ul>
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-yellow-400 mt-2.5 flex-shrink-0"></span>
+                            <span>This allowed us to use existing company JPY reserves more efficiently</span>
                         </li>
-                        <li>Actively involved in cross-checks, LQA, and complex vendor cases</li>
-                        <li>Provided continuity during team restructuring</li>
-                    </ul>
-                </div>
-
-                <div class="team-member">
-                    <h4>Tonyzal – Vendor Manager</h4>
-                    <ul>
-                        <li>Joined during the transformation phase</li>
-                        <li>Quickly adapted to new processes and tooling</li>
-                        <li>Strong involvement in:
-                            <ul>
-                                <li>margin-related tasks</li>
-                                <li>operational cleanup</li>
-                                <li>vendor coordination</li>
-                            </ul>
+                        <li class="flex items-start gap-3">
+                            <span class="h-1.5 w-1.5 rounded-full bg-yellow-400 mt-2.5 flex-shrink-0"></span>
+                            <span>Reduced currency pressure and improved cash-flow flexibility</span>
                         </li>
-                        <li>Helped stabilize workflows during high-load periods</li>
                     </ul>
-                </div>
+                    <p class="text-white font-medium italic">
+                        <span class="text-yellow-400">Small change – real financial impact.</span>
+                    </p>
+                </article>
+            </div>
+        </section>
 
-                <div class="team-member">
-                    <h4>Albina – Vendor Manager</h4>
-                    <ul>
-                        <li>Joined one year ago and ramped up fast</li>
-                        <li>Took ownership over:
-                            <ul>
-                                <li>day-to-day vendor operations</li>
-                                <li>linguist communication</li>
-                                <li>process execution</li>
-                            </ul>
+        <section class="relative">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-12 w-2 bg-neon-blue rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">Team Contributions</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <article class="bg-dark-surface rounded-2xl p-6 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-neon-blue to-neon-purple"></div>
+                    <h4 class="font-display text-xl font-bold text-white mb-4">dv – Head of Vendor Department</h4>
+                    <ul class="space-y-3 text-text-muted text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-blue text-sm mt-0.5">star</span>
+                            <span>Led full Vendor transformation</span>
                         </li>
-                        <li>Became a reliable operational driver inside the new Vendor setup</li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-blue text-sm mt-0.5">analytics</span>
+                            <span>Owned margin analysis strategy and execution</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-blue text-sm mt-0.5">build</span>
+                            <span>Initiated and drove: Monthly Alpha Review, Hunt&Hire, TEAMZZZ, Internal QA replacement</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-blue text-sm mt-0.5">link</span>
+                            <span>Acted as a bridge between Vendor, Localization, and Sales</span>
+                        </li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="team-member">
-                    <h4>KD – Vendor → Localization Manager</h4>
-                    <ul>
-                        <li>Joined in November as Vendor Manager</li>
-                        <li>Transitioning to Localization Manager role in January</li>
-                        <li>Early involvement helped strengthen Vendor–Localization alignment</li>
-                        <li>Clear growth trajectory inside the company</li>
+                <article class="bg-dark-surface rounded-2xl p-6 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-neon-green to-emerald-500"></div>
+                    <h4 class="font-display text-xl font-bold text-white mb-4">Irina – Vendor Manager</h4>
+                    <ul class="space-y-3 text-text-muted text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-green text-sm mt-0.5">verified</span>
+                            <span>One of the most stable and reliable pillars of the team</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-green text-sm mt-0.5">assignment</span>
+                            <span>Strong ownership over project support, linguist coordination, quality and margin follow-ups</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-green text-sm mt-0.5">support</span>
+                            <span>Actively involved in cross-checks, LQA, and complex vendor cases</span>
+                        </li>
                     </ul>
-                </div>
-            </section>
+                </article>
 
-            <section class="final-thoughts">
-                <h2>Final Thoughts</h2>
-                <p>
-                    2025 proved that:
-                </p>
-                <ul>
-                    <li>Vendor is not a cost center</li>
-                    <li>Vendor is a profit, quality, and scalability lever</li>
-                </ul>
-                <p>We:</p>
-                <ul>
-                    <li>increased margins</li>
-                    <li>reduced chaos</li>
-                    <li>built tools instead of workarounds</li>
-                    <li>prepared the ground for scaling</li>
-                </ul>
-                <p>
-                    With AI changing the industry, Vendor didn't get weaker – it adapted.
-                </p>
-                <p style="font-size: 1.3em; margin-top: 30px; font-weight: 600;">
-                    Honestly, it feels like 2026 can be the strongest year yet.
-                </p>
-            </section>
-        </main>
-    </div>
+                <article class="bg-dark-surface rounded-2xl p-6 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-neon-gold to-yellow-500"></div>
+                    <h4 class="font-display text-xl font-bold text-white mb-4">Tonyzal – Vendor Manager</h4>
+                    <ul class="space-y-3 text-text-muted text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-gold text-sm mt-0.5">trending_up</span>
+                            <span>Joined during the transformation phase</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-gold text-sm mt-0.5">speed</span>
+                            <span>Quickly adapted to new processes and tooling</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-gold text-sm mt-0.5">work</span>
+                            <span>Strong involvement in margin-related tasks, operational cleanup, vendor coordination</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="bg-dark-surface rounded-2xl p-6 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-neon-pink to-rose-500"></div>
+                    <h4 class="font-display text-xl font-bold text-white mb-4">Albina – Vendor Manager</h4>
+                    <ul class="space-y-3 text-text-muted text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-pink text-sm mt-0.5">rocket_launch</span>
+                            <span>Joined one year ago and ramped up fast</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-pink text-sm mt-0.5">manage_accounts</span>
+                            <span>Took ownership over day-to-day vendor operations, linguist communication, process execution</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-neon-pink text-sm mt-0.5">verified_user</span>
+                            <span>Became a reliable operational driver inside the new Vendor setup</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="md:col-span-2 bg-dark-surface rounded-2xl p-6 border border-white/5 relative overflow-hidden group card-hover transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-500"></div>
+                    <h4 class="font-display text-xl font-bold text-white mb-4">KD – Vendor → Localization Manager</h4>
+                    <ul class="space-y-3 text-text-muted text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-cyan-400 text-sm mt-0.5">person_add</span>
+                            <span>Joined in November as Vendor Manager</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-cyan-400 text-sm mt-0.5">swap_horiz</span>
+                            <span>Transitioning to Localization Manager role in January</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-cyan-400 text-sm mt-0.5">handshake</span>
+                            <span>Early involvement helped strengthen Vendor–Localization alignment</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons-round text-cyan-400 text-sm mt-0.5">trending_up</span>
+                            <span>Clear growth trajectory inside the company</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="relative">
+            <div class="bg-gradient-to-br from-dark-surface to-dark rounded-3xl p-12 border border-white/10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-neon-purple/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="h-12 w-2 bg-gradient-to-b from-neon-purple to-neon-pink rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">Final Thoughts</h2>
+                    </div>
+                    <div class="space-y-6 text-lg text-text-muted">
+                        <p>
+                            2025 proved that:
+                        </p>
+                        <ul class="space-y-4 ml-6">
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-green mt-1">check_circle</span>
+                                <span class="text-white font-medium">Vendor is not a cost center</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons-round text-neon-green mt-1">check_circle</span>
+                                <span class="text-white font-medium">Vendor is a profit, quality, and scalability lever</span>
+                            </li>
+                        </ul>
+                        <p>We:</p>
+                        <ul class="space-y-3 ml-6">
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neon-blue mt-2.5 flex-shrink-0"></span>
+                                <span>increased margins</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neon-blue mt-2.5 flex-shrink-0"></span>
+                                <span>reduced chaos</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neon-blue mt-2.5 flex-shrink-0"></span>
+                                <span>built tools instead of workarounds</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neon-blue mt-2.5 flex-shrink-0"></span>
+                                <span>prepared the ground for scaling</span>
+                            </li>
+                        </ul>
+                        <p class="text-white font-medium text-xl mt-8">
+                            With AI changing the industry, Vendor didn't get weaker – it adapted.
+                        </p>
+                        <p class="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-green via-neon-purple to-neon-pink mt-8">
+                            Honestly, it feels like 2026 can be the strongest year yet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-24 border-t border-white/5 bg-dark-surface/50 py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-neon-blue to-neon-purple rounded-lg flex items-center justify-center">
+                    <span class="material-icons-round text-white text-sm">bolt</span>
+                </div>
+                <span class="font-display font-bold text-lg text-white tracking-wider">VENDOR POWER</span>
+            </div>
+            <p class="text-text-muted text-sm">
+                © 2025 Annual Recap. Internal Use Only.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
